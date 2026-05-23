@@ -1,0 +1,1924 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Престиж — Сумки и Кожгалантерея | Калининград</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --gold: #C6A96C;
+            --gold-light: #D4BC85;
+            --gold-dark: #A8894A;
+            --dark: #1A1A1A;
+            --dark-2: #2A2A2A;
+            --dark-3: #333333;
+            --white: #FFFFFF;
+            --gray: #9A9A9A;
+            --gray-light: #E8E8E8;
+            --bg: #0D0D0D;
+            --card-bg: #1E1E1E;
+            --card-bg-hover: #262626;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg);
+            color: var(--white);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: var(--bg); }
+        ::-webkit-scrollbar-thumb { background: var(--gold-dark); border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: var(--gold); }
+
+        /* HEADER */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(13, 13, 13, 0.9);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(198, 169, 108, 0.15);
+            transition: all 0.4s ease;
+        }
+
+        header.scrolled {
+            background: rgba(13, 13, 13, 0.98);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .header-inner {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 40px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--gold);
+            text-decoration: none;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            position: relative;
+        }
+
+        .logo::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+        }
+
+        nav {
+            display: flex;
+            gap: 32px;
+            align-items: center;
+        }
+
+        nav a {
+            color: var(--gray);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--gold);
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--gold);
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            padding: 8px;
+            background: none;
+            border: none;
+        }
+
+        .menu-toggle span {
+            width: 24px;
+            height: 2px;
+            background: var(--gold);
+            transition: all 0.3s ease;
+        }
+
+        /* HERO */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+            background: 
+                radial-gradient(ellipse at 20% 50%, rgba(198, 169, 108, 0.08) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 50%, rgba(198, 169, 108, 0.05) 0%, transparent 50%),
+                radial-gradient(ellipse at 50% 0%, rgba(198, 169, 108, 0.03) 0%, transparent 60%);
+        }
+
+        .hero-content {
+            text-align: center;
+            z-index: 2;
+            padding: 0 40px;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(198, 169, 108, 0.1);
+            border: 1px solid rgba(198, 169, 108, 0.2);
+            border-radius: 50px;
+            padding: 8px 20px;
+            font-size: 12px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 32px;
+            animation: fadeInDown 0.8s ease;
+        }
+
+        .hero-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(48px, 8vw, 120px);
+            font-weight: 700;
+            color: var(--gold);
+            letter-spacing: 12px;
+            text-transform: uppercase;
+            line-height: 1.1;
+            margin-bottom: 24px;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(16px, 2vw, 22px);
+            color: var(--gray);
+            font-weight: 300;
+            letter-spacing: 3px;
+            margin-bottom: 16px;
+            animation: fadeInUp 1.2s ease;
+        }
+
+        .hero-location {
+            font-size: 16px;
+            color: var(--gray-light);
+            font-weight: 400;
+            margin-bottom: 48px;
+            animation: fadeInUp 1.4s ease;
+        }
+
+        .hero-location svg {
+            width: 18px;
+            height: 18px;
+            vertical-align: middle;
+            margin-right: 6px;
+            fill: var(--gold);
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeInUp 1.6s ease;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 16px 36px;
+            border-radius: 50px;
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            border: none;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+            color: var(--dark);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(198, 169, 108, 0.4);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--gold);
+            border: 1px solid var(--gold);
+        }
+
+        .btn-outline:hover {
+            background: rgba(198, 169, 108, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            animation: bounce 2s infinite;
+        }
+
+        .scroll-indicator span {
+            font-size: 11px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--gray);
+        }
+
+        .scroll-line {
+            width: 1px;
+            height: 40px;
+            background: linear-gradient(to bottom, var(--gold), transparent);
+        }
+
+        /* SECTIONS */
+        section {
+            padding: 100px 40px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 64px;
+        }
+
+        .section-label {
+            font-size: 12px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 16px;
+            display: block;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(32px, 4vw, 48px);
+            font-weight: 600;
+            color: var(--white);
+            margin-bottom: 16px;
+        }
+
+        .section-desc {
+            font-size: 16px;
+            color: var(--gray);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .divider {
+            width: 60px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+            margin: 20px auto 0;
+        }
+
+        /* CATEGORIES */
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .category-card {
+            background: var(--card-bg);
+            border: 1px solid rgba(198, 169, 108, 0.08);
+            border-radius: 16px;
+            padding: 32px 24px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .category-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(198, 169, 108, 0.05), transparent);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .category-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(198, 169, 108, 0.2);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .category-card:hover::before {
+            opacity: 1;
+        }
+
+        .category-icon {
+            width: 56px;
+            height: 56px;
+            margin: 0 auto 16px;
+            background: rgba(198, 169, 108, 0.1);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+        }
+
+        .category-card h3 {
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--white);
+            letter-spacing: 0.5px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* PRODUCTS */
+        .products-section {
+            background: linear-gradient(180deg, var(--bg), var(--dark), var(--bg));
+            max-width: 100%;
+            padding: 100px 40px;
+        }
+
+        .products-inner {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+        }
+
+        .product-card {
+            background: var(--card-bg);
+            border: 1px solid rgba(198, 169, 108, 0.08);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: all 0.4s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 16px 48px rgba(0, 0, 0, 0.4);
+            border-color: rgba(198, 169, 108, 0.15);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 260px;
+            background: linear-gradient(135deg, var(--dark-2), var(--dark-3));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-image svg {
+            width: 80px;
+            height: 80px;
+            opacity: 0.3;
+            fill: var(--gold);
+        }
+
+        .product-badge {
+            position: absolute;
+            top: 16px;
+            left: 16px;
+            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+            color: var(--dark);
+            padding: 6px 14px;
+            border-radius: 50px;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .product-info {
+            padding: 24px;
+        }
+
+        .product-category {
+            font-size: 12px;
+            color: var(--gold);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+
+        .product-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .product-desc {
+            font-size: 14px;
+            color: var(--gray);
+            margin-bottom: 16px;
+            line-height: 1.6;
+        }
+
+        .product-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .product-price {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--gold);
+        }
+
+        .product-price .old-price {
+            font-size: 14px;
+            color: var(--gray);
+            text-decoration: line-through;
+            font-weight: 400;
+            margin-left: 8px;
+        }
+
+        .product-btn {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: rgba(198, 169, 108, 0.1);
+            border: 1px solid rgba(198, 169, 108, 0.2);
+            color: var(--gold);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .product-btn:hover {
+            background: var(--gold);
+            color: var(--dark);
+        }
+
+        /* PAYMENT */
+        .payment-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+        }
+
+        .payment-card {
+            background: var(--card-bg);
+            border: 1px solid rgba(198, 169, 108, 0.08);
+            border-radius: 16px;
+            padding: 28px 24px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .payment-card:hover {
+            border-color: rgba(198, 169, 108, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .payment-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            background: rgba(198, 169, 108, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .payment-icon svg {
+            width: 24px;
+            height: 24px;
+            fill: var(--gold);
+        }
+
+        .payment-card h4 {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--white);
+        }
+
+        /* PARKING */
+        .parking-section {
+            background: linear-gradient(180deg, var(--bg), rgba(198, 169, 108, 0.02), var(--bg));
+            max-width: 100%;
+            padding: 100px 40px;
+        }
+
+        .parking-inner {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .parking-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .parking-card {
+            background: var(--card-bg);
+            border: 1px solid rgba(198, 169, 108, 0.08);
+            border-radius: 16px;
+            padding: 28px;
+            transition: all 0.3s ease;
+        }
+
+        .parking-card:hover {
+            border-color: rgba(198, 169, 108, 0.15);
+        }
+
+        .parking-spots {
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--gold);
+            margin-bottom: 4px;
+        }
+
+        .parking-spots span {
+            font-size: 16px;
+            font-weight: 400;
+            color: var(--gray);
+        }
+
+        .parking-type {
+            font-size: 13px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-top: 8px;
+        }
+
+        .parking-type.free {
+            color: #4ADE80;
+        }
+
+        .parking-type.paid {
+            color: #F59E0B;
+        }
+
+        /* TRANSPORT */
+        .transport-card {
+            background: var(--card-bg);
+            border: 1px solid rgba(198, 169, 108, 0.08);
+            border-radius: 20px;
+            padding: 40px;
+            display: flex;
+            align-items: center;
+            gap: 32px;
+            max-width: 600px;
+            margin: 0 auto;
+            transition: all 0.3s ease;
+        }
+
+        .transport-card:hover {
+            border-color: rgba(198, 169, 108, 0.2);
+        }
+
+        .transport-icon {
+            width: 64px;
+            height: 64px;
+            border-radius: 16px;
+            background: rgba(198, 169, 108, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .transport-icon svg {
+            width: 32px;
+            height: 32px;
+            fill: var(--gold);
+        }
+
+        .transport-info h3 {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .transport-meta {
+            display: flex;
+            gap: 20px;
+        }
+
+        .transport-meta-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 14px;
+            color: var(--gray);
+        }
+
+        .transport-meta-item strong {
+            color: var(--gold);
+        }
+
+        /* REVIEWS */
+        .reviews-section {
+            background: linear-gradient(180deg, var(--bg), var(--dark), var(--bg));
+            max-width: 100%;
+            padding: 100px 40px;
+        }
+
+        .reviews-inner {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 24px;
+        }
+
+        .review-card {
+            background: var(--card-bg);
+            border: 1px solid rgba(198, 169, 108, 0.08);
+            border-radius: 20px;
+            padding: 32px;
+            transition: all 0.4s ease;
+        }
+
+        .review-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+            border-color: rgba(198, 169, 108, 0.15);
+        }
+
+        .review-header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 20px;
+        }
+
+        .review-avatar {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--dark);
+            flex-shrink: 0;
+        }
+
+        .review-author {
+            flex: 1;
+        }
+
+        .review-author h4 {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 2px;
+        }
+
+        .review-author span {
+            font-size: 12px;
+            color: var(--gray);
+        }
+
+        .review-stars {
+            display: flex;
+            gap: 2px;
+        }
+
+        .review-stars svg {
+            width: 16px;
+            height: 16px;
+            fill: var(--gold);
+        }
+
+        .review-text {
+            font-size: 15px;
+            color: var(--gray-light);
+            line-height: 1.7;
+        }
+
+        .review-date {
+            font-size: 12px;
+            color: var(--gray);
+            margin-top: 16px;
+            padding-top: 16px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        /* GIFT CERTIFICATE */
+        .cert-section {
+            padding: 100px 40px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .cert-card {
+            background: linear-gradient(135deg, var(--dark-2), var(--dark-3));
+            border: 1px solid rgba(198, 169, 108, 0.2);
+            border-radius: 24px;
+            padding: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cert-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(198, 169, 108, 0.08), transparent 70%);
+        }
+
+        .cert-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .cert-content h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 36px;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .cert-content p {
+            font-size: 16px;
+            color: var(--gray);
+            margin-bottom: 8px;
+        }
+
+        .cert-prices {
+            display: flex;
+            gap: 12px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .cert-price-tag {
+            background: rgba(198, 169, 108, 0.15);
+            border: 1px solid rgba(198, 169, 108, 0.3);
+            border-radius: 50px;
+            padding: 8px 20px;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--gold);
+        }
+
+        .cert-visual {
+            position: relative;
+            z-index: 1;
+            flex-shrink: 0;
+        }
+
+        .cert-visual-box {
+            width: 280px;
+            height: 170px;
+            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+            border-radius: 16px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 16px 48px rgba(198, 169, 108, 0.3);
+        }
+
+        .cert-visual-box span:first-child {
+            font-family: 'Playfair Display', serif;
+            font-size: 14px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--dark);
+            margin-bottom: 4px;
+        }
+
+        .cert-visual-box span:last-child {
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--dark);
+        }
+
+        /* CONTACT */
+        .contact-section {
+            background: linear-gradient(180deg, var(--bg), var(--dark));
+            max-width: 100%;
+            padding: 100px 40px;
+        }
+
+        .contact-inner {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: start;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            background: var(--card-bg);
+            border: 1px solid rgba(198, 169, 108, 0.08);
+            border-radius: 16px;
+            padding: 24px;
+            transition: all 0.3s ease;
+        }
+
+        .contact-item:hover {
+            border-color: rgba(198, 169, 108, 0.15);
+        }
+
+        .contact-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            background: rgba(198, 169, 108, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .contact-icon svg {
+            width: 22px;
+            height: 22px;
+            fill: var(--gold);
+        }
+
+        .contact-item h4 {
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .contact-item p {
+            font-size: 15px;
+            color: var(--gray);
+        }
+
+        .map-container {
+            width: 100%;
+            height: 400px;
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid rgba(198, 169, 108, 0.08);
+            background: var(--card-bg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* FOOTER */
+        footer {
+            background: var(--dark);
+            border-top: 1px solid rgba(198, 169, 108, 0.1);
+            padding: 60px 40px 30px;
+        }
+
+        .footer-inner {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .footer-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+            gap: 40px;
+        }
+
+        .footer-brand .logo {
+            font-size: 24px;
+            display: inline-block;
+            margin-bottom: 12px;
+        }
+
+        .footer-brand p {
+            font-size: 14px;
+            color: var(--gray);
+            max-width: 300px;
+        }
+
+        .footer-links h4 {
+            font-size: 13px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 16px;
+        }
+
+        .footer-links a {
+            display: block;
+            color: var(--gray);
+            text-decoration: none;
+            font-size: 14px;
+            padding: 4px 0;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--gold);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            padding-top: 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .footer-bottom p {
+            font-size: 13px;
+            color: var(--gray);
+        }
+
+        .footer-legal {
+            font-size: 12px;
+            color: var(--gray);
+            max-width: 400px;
+            text-align: right;
+        }
+
+        /* ANIMATIONS */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+            40% { transform: translateX(-50%) translateY(-8px); }
+            60% { transform: translateX(-50%) translateY(-4px); }
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* MOBILE NAV */
+        .mobile-nav {
+            display: none;
+            position: fixed;
+            top: 80px;
+            left: 0;
+            right: 0;
+            background: rgba(13, 13, 13, 0.98);
+            backdrop-filter: blur(20px);
+            padding: 24px 40px;
+            border-bottom: 1px solid rgba(198, 169, 108, 0.1);
+            z-index: 999;
+        }
+
+        .mobile-nav.active {
+            display: block;
+        }
+
+        .mobile-nav a {
+            display: block;
+            color: var(--gray);
+            text-decoration: none;
+            font-size: 16px;
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+            transition: color 0.3s ease;
+        }
+
+        .mobile-nav a:hover {
+            color: var(--gold);
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 1024px) {
+            .cert-card {
+                flex-direction: column;
+                text-align: center;
+                padding: 40px;
+            }
+
+            .cert-prices {
+                justify-content: center;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-inner {
+                padding: 0 20px;
+            }
+
+            nav {
+                display: none;
+            }
+
+            .menu-toggle {
+                display: flex;
+            }
+
+            section {
+                padding: 60px 20px;
+            }
+
+            .products-section,
+            .parking-section,
+            .reviews-section,
+            .contact-section {
+                padding: 60px 20px;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .reviews-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .transport-card {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .footer-top {
+                flex-direction: column;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .footer-legal {
+                text-align: center;
+            }
+
+            .cert-visual-box {
+                width: 220px;
+                height: 140px;
+            }
+
+            .cert-visual-box span:last-child {
+                font-size: 24px;
+            }
+        }
+
+        /* Promo Banner */
+        .promo-banner {
+            background: linear-gradient(135deg, rgba(198, 169, 108, 0.15), rgba(198, 169, 108, 0.05));
+            border: 1px solid rgba(198, 169, 108, 0.2);
+            border-radius: 20px;
+            padding: 32px;
+            margin-top: 40px;
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            flex-wrap: wrap;
+        }
+
+        .promo-banner .fire {
+            font-size: 40px;
+        }
+
+        .promo-content h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 22px;
+            margin-bottom: 4px;
+        }
+
+        .promo-content p {
+            color: var(--gray);
+            font-size: 14px;
+        }
+
+        .promo-price {
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--gold);
+            margin-left: auto;
+        }
+
+        /* Delivery Banner */
+        .delivery-banner {
+            background: var(--card-bg);
+            border: 1px solid rgba(198, 169, 108, 0.08);
+            border-radius: 16px;
+            padding: 24px 32px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-top: 40px;
+        }
+
+        .delivery-banner svg {
+            width: 32px;
+            height: 32px;
+            fill: var(--gold);
+            flex-shrink: 0;
+        }
+
+        .delivery-banner p {
+            font-size: 15px;
+            color: var(--gray-light);
+        }
+
+        .delivery-banner strong {
+            color: var(--gold);
+        }
+
+        /* Type badges */
+        .type-badges {
+            display: flex;
+            gap: 12px;
+            margin-top: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .type-badge {
+            background: rgba(198, 169, 108, 0.1);
+            border: 1px solid rgba(198, 169, 108, 0.2);
+            border-radius: 50px;
+            padding: 8px 24px;
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--gold);
+            letter-spacing: 1px;
+        }
+
+        /* Directory categories */
+        .dir-categories {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 32px;
+        }
+
+        .dir-tag {
+            background: var(--card-bg);
+            border: 1px solid rgba(198, 169, 108, 0.08);
+            border-radius: 50px;
+            padding: 10px 24px;
+            font-size: 13px;
+            color: var(--gray-light);
+            transition: all 0.3s ease;
+        }
+
+        .dir-tag:hover {
+            border-color: rgba(198, 169, 108, 0.2);
+            color: var(--gold);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header id="header">
+        <div class="header-inner">
+            <a href="#" class="logo">Престиж</a>
+            <nav>
+                <a href="#catalog">Каталог</a>
+                <a href="#products">Товары</a>
+                <a href="#payment">Оплата</a>
+                <a href="#parking">Парковка</a>
+                <a href="#reviews">Отзывы</a>
+                <a href="#contacts">Контакты</a>
+            </nav>
+            <button class="menu-toggle" id="menuToggle" aria-label="Меню">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- MOBILE NAV -->
+    <div class="mobile-nav" id="mobileNav">
+        <a href="#catalog">Каталог</a>
+        <a href="#products">Товары</a>
+        <a href="#payment">Оплата</a>
+        <a href="#parking">Парковка</a>
+        <a href="#reviews">Отзывы</a>
+        <a href="#contacts">Контакты</a>
+    </div>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-content">
+            <div class="hero-badge">✦ Сеть магазинов в Калининграде</div>
+            <h1 class="hero-title">Престиж</h1>
+            <p class="hero-subtitle">Сумки · Кожгалантерея · Аксессуары</p>
+            <p class="hero-location">
+                <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                Акрополь, Улица Профессора Баранова, 34 · 1 этаж · Калининград
+            </p>
+            <div class="hero-buttons">
+                <a href="#catalog" class="btn btn-primary">Каталог товаров</a>
+                <a href="#contacts" class="btn btn-outline">Как добраться</a>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <span>Листайте</span>
+            <div class="scroll-line"></div>
+        </div>
+    </section>
+
+    <!-- CATALOG -->
+    <section id="catalog">
+        <div class="section-header fade-in">
+            <span class="section-label">Ассортимент</span>
+            <h2 class="section-title">Каталог товаров</h2>
+            <p class="section-desc">Широкий выбор сумок, кожгалантереи и аксессуаров на любой вкус</p>
+            <div class="divider"></div>
+        </div>
+        <div class="categories-grid">
+            <div class="category-card fade-in">
+                <div class="category-icon">👜</div>
+                <h3>Сумки</h3>
+            </div>
+            <div class="category-card fade-in">
+                <div class="category-icon">🧳</div>
+                <h3>Чемоданы</h3>
+            </div>
+            <div class="category-card fade-in">
+                <div class="category-icon">☂️</div>
+                <h3>Зонты</h3>
+            </div>
+            <div class="category-card fade-in">
+                <div class="category-icon">👛</div>
+                <h3>Кошельки</h3>
+            </div>
+            <div class="category-card fade-in">
+                <div class="category-icon">🪢</div>
+                <h3>Ремни</h3>
+            </div>
+            <div class="category-card fade-in">
+                <div class="category-icon">🧤</div>
+                <h3>Перчатки</h3>
+            </div>
+            <div class="category-card fade-in">
+                <div class="category-icon">📋</div>
+                <h3>Обложки для документов</h3>
+            </div>
+            <div class="category-card fade-in">
+                <div class="category-icon">🎒</div>
+                <h3>Школьные рюкзаки</h3>
+            </div>
+        </div>
+        <div class="dir-categories fade-in">
+            <span class="dir-tag">Головные и шейные уборы</span>
+            <span class="dir-tag">Сумки и кожгалантерея</span>
+            <span class="dir-tag">Солнцезащитные очки</span>
+        </div>
+        <div class="type-badges fade-in">
+            <span class="type-badge">Розница</span>
+            <span class="type-badge">Опт</span>
+        </div>
+    </section>
+
+    <!-- PRODUCTS -->
+    <div class="products-section" id="products">
+        <div class="products-inner">
+            <div class="section-header fade-in">
+                <span class="section-label">Коллекция</span>
+                <h2 class="section-title">Наши товары</h2>
+                <p class="section-desc">Лучшие предложения сезона</p>
+                <div class="divider"></div>
+            </div>
+            <div class="products-grid">
+                <!-- Product 1 -->
+                <div class="product-card fade-in">
+                    <div class="product-image">
+                        <svg viewBox="0 0 24 24"><path d="M20 6h-3V4c0-1.1-.9-2-2-2H9c-1.1 0-2 .9-2 2v2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zM9 4h6v2H9V4zm11 16H4V8h16v12z"/></svg>
+                    </div>
+                    <div class="product-info">
+                        <span class="product-category">Сумки женские</span>
+                        <h3 class="product-name">Сумки по акционной цене</h3>
+                        <div class="product-footer">
+                            <span class="product-price">1 699 ₽</span>
+                            <button class="product-btn" aria-label="Подробнее">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 2 -->
+                <div class="product-card fade-in">
+                    <div class="product-image">
+                        <div class="product-badge">Хит</div>
+                        <svg viewBox="0 0 24 24"><path d="M20.5 7.3c-.2-.3-.5-.4-.8-.4h-2.6l3-3c.4-.4.4-1 0-1.4-.4-.4-1-.4-1.4 0L15 6.2l-3.3-3.3c-.8-.8-2-.8-2.8 0L5.6 6.2 2.3 2.9c-.4-.4-1-.4-1.4 0-.4.4-.4 1 0 1.4l3 3H1.3c-.3 0-.6.1-.8.4-.2.3-.2.6 0 .9l2.5 2.5c.2.2.5.3.8.3h16.4c.3 0 .6-.1.8-.3l2.5-2.5c.2-.3.2-.6 0-.9zM20.5 13.3c-.2-.3-.5-.4-.8-.4h-2.6l3-3c.4-.4.4-1 0-1.4-.4-.4-1-.4-1.4 0L15 12.2l-3.3-3.3c-.8-.8-2-.8-2.8 0L5.6 12.2 2.3 8.9c-.4-.4-1-.4-1.4 0-.4.4-.4 1 0 1.4l3 3H1.3c-.3 0-.6.1-.8.4-.2.3-.2.6 0 .9l2.5 2.5c.2.2.5.3.8.3h16.4c.3 0 .6-.1.8-.3l2.5-2.5c.2-.3.2-.6 0-.9z"/></svg>
+                    </div>
+                    <div class="product-info">
+                        <span class="product-category">Солнцезащитные очки</span>
+                        <h3 class="product-name">Солнечные очки</h3>
+                        <p class="product-desc">Очень большой выбор очков на любой вкус!</p>
+                        <div class="product-footer">
+                            <span class="product-price">699 ₽</span>
+                            <button class="product-btn" aria-label="Подробнее">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 3 -->
+                <div class="product-card fade-in">
+                    <div class="product-image">
+                        <svg viewBox="0 0 24 24"><path d="M20 6h-3V4c0-1.1-.9-2-2-2H9c-1.1 0-2 .9-2 2v2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zM9 4h6v2H9V4zm11 16H4V8h16v12z"/></svg>
+                    </div>
+                    <div class="product-info">
+                        <span class="product-category">Аксессуары</span>
+                        <h3 class="product-name">Очки мужские</h3>
+                        <p class="product-desc">«А у вас есть мужские солнечные очки!?» Конечно!👍 Дорогие наши мужчины, во всех наших магазинах сети представлен ряд моделей солнечных очков для вас!😎</p>
+                        <div class="product-footer">
+                            <span class="product-price">699 ₽</span>
+                            <button class="product-btn" aria-label="Подробнее">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 4 -->
+                <div class="product-card fade-in">
+                    <div class="product-image">
+                        <div class="product-badge">Акция 🔥</div>
+                        <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+                    </div>
+                    <div class="product-info">
+                        <span class="product-category">Перчатки</span>
+                        <h3 class="product-name">Перчатки осенне-зимние</h3>
+                        <p class="product-desc">🍂 Классное предложение осени! Разные цветовые варианты и отделка. Перчатки с бусинами 199₽ · Длинные 550₽</p>
+                        <div class="product-footer">
+                            <span class="product-price">249 ₽</span>
+                            <button class="product-btn" aria-label="Подробнее">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 5 -->
+                <div class="product-card fade-in">
+                    <div class="product-image">
+                        <div class="product-badge">Подарок</div>
+                        <svg viewBox="0 0 24 24"><path d="M20 12l-1.41-1.41L13 16.17V4h-2v12.17l-5.58-5.59L4 12l8 8 8-8z"/></svg>
+                    </div>
+                    <div class="product-info">
+                        <span class="product-category">Аксессуары</span>
+                        <h3 class="product-name">Подарочный сертификат</h3>
+                        <p class="product-desc">Идеальный подарок для близких. Номиналы: 1 000, 2 000, 3 000, 4 000 ₽</p>
+                        <div class="product-footer">
+                            <span class="product-price">от 1 000 ₽</span>
+                            <button class="product-btn" aria-label="Подробнее">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 6 -->
+                <div class="product-card fade-in">
+                    <div class="product-image">
+                        <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                    </div>
+                    <div class="product-info">
+                        <span class="product-category">Зонты</span>
+                        <h3 class="product-name">Зонты на любой вкус</h3>
+                        <p class="product-desc">Огромный выбор зонтов — от компактных до больших. Можно выбрать на любой вкус и кошелёк!</p>
+                        <div class="product-footer">
+                            <span class="product-price">от 699 ₽</span>
+                            <button class="product-btn" aria-label="Подробнее">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Promo -->
+            <div class="promo-banner fade-in">
+                <span class="fire">🔥</span>
+                <div class="promo-content">
+                    <h3>Перчатки по 249₽</h3>
+                    <p>Разные цветовые варианты и отделка. Подберите несколько пар, чтобы быть притягивать взгляды в любом образе!</p>
+                </div>
+                <span class="promo-price">249 ₽</span>
+            </div>
+
+            <!-- Delivery -->
+            <div class="delivery-banner fade-in">
+                <svg viewBox="0 0 24 24"><path d="M18 18.5c.83 0 1.5-.67 1.5-1.5s-.67-1.5-1.5-1.5-1.5.67-1.5 1.5.67 1.5 1.5 1.5zm1.5-9H17V12h4.46L19.5 9.5zM6 18.5c.83 0 1.5-.67 1.5-1.5S6.83 15.5 6 15.5 4.5 16.17 4.5 17 5.17 18.5 6 18.5zM20 8l3 4v5h-2c0 1.66-1.34 3-3 3s-3-1.34-3-3H9c0 1.66-1.34 3-3 3s-3-1.34-3-3H1V6c0-1.11.89-2 2-2h14v4h3zM3 6v9h.76c.55-.61 1.35-1 2.24-1 .89 0 1.69.39 2.24 1H15V6H3z"/></svg>
+                <p>Доставка по Калининграду · <strong>+7 (911) 497-77-07</strong> · Viber / WhatsApp</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- PAYMENT -->
+    <section id="payment">
+        <div class="section-header fade-in">
+            <span class="section-label">Удобство</span>
+            <h2 class="section-title">Способы оплаты</h2>
+            <p class="section-desc">Выберите удобный для вас способ оплаты</p>
+            <div class="divider"></div>
+        </div>
+        <div class="payment-grid">
+            <div class="payment-card fade-in">
+                <div class="payment-icon">
+                    <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.11 0-1.99.89-1.99 2L2 18c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V6c0-1.11-.89-2-2-2zm0 14H4v-6h16v6zm0-10H4V6h16v2z"/></svg>
+                </div>
+                <h4>Оплата картой</h4>
+            </div>
+            <div class="payment-card fade-in">
+                <div class="payment-icon">
+                    <svg viewBox="0 0 24 24"><path d="M11.8 10.9c-2.27-.59-3-1.2-3-2.15 0-1.09 1.01-1.85 2.7-1.85 1.78 0 2.44.85 2.5 2.1h2.21c-.07-1.72-1.12-3.3-3.21-3.81V3h-3v2.16c-1.94.42-3.5 1.68-3.5 3.61 0 2.31 1.91 3.46 4.7 4.13 2.5.6 3 1.48 3 2.41 0 .69-.49 1.79-2.7 1.79-2.06 0-2.87-.92-2.98-2.1h-2.2c.12 2.19 1.76 3.42 3.68 3.83V21h3v-2.15c1.95-.37 3.5-1.5 3.5-3.55 0-2.84-2.43-3.81-4.7-4.4z"/></svg>
+                </div>
+                <h4>Наличный расчёт</h4>
+            </div>
+            <div class="payment-card fade-in">
+                <div class="payment-icon">
+                    <svg viewBox="0 0 24 24"><path d="M4 10h12v2H4zm0-4h12v2H4zm0 8h8v2H4zm14-2h-2l-2 2v-2h-2v2l-2-2v2l2 2v2h2l2-2v2l2-2v-2l-2-2z"/></svg>
+                </div>
+                <h4>Оплата через банк</h4>
+            </div>
+            <div class="payment-card fade-in">
+                <div class="payment-icon">
+                    <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1.41 16.09V20h-2.67v-1.93c-1.71-.36-3.16-1.46-3.27-3.4h1.96c.1 1.05.82 1.87 2.65 1.87 1.96 0 2.4-.98 2.4-1.59 0-.83-.44-1.61-2.67-2.14-2.48-.6-4.18-1.62-4.18-3.67 0-1.72 1.39-2.84 3.11-3.21V4h2.67v1.95c1.86.45 2.79 1.86 2.85 3.39H14.3c-.05-1.11-.64-1.87-2.22-1.87-1.5 0-2.4.68-2.4 1.64 0 .84.65 1.39 2.67 1.94s4.18 1.36 4.18 3.87c0 1.89-1.44 2.98-3.12 3.17z"/></svg>
+                </div>
+                <h4>Перевод с карты</h4>
+            </div>
+            <div class="payment-card fade-in">
+                <div class="payment-icon">
+                    <svg viewBox="0 0 24 24"><path d="M3 11h8V3H3v8zm2-6h4v4H5V5zm8-2v8h8V3h-8zm6 6h-4V5h4v4zM3 21h8v-8H3v8zm2-6h4v4H5v-4zm13-2h-2v3h-3v2h3v3h2v-3h3v-2h-3v-3z"/></svg>
+                </div>
+                <h4>Оплата по QR-коду</h4>
+            </div>
+        </div>
+    </section>
+
+    <!-- PARKING -->
+    <div class="parking-section" id="parking">
+        <div class="parking-inner">
+            <div class="section-header fade-in">
+                <span class="section-label">Автомобилистам</span>
+                <h2 class="section-title">Парковка</h2>
+                <p class="section-desc">Удобная парковка рядом с магазином</p>
+                <div class="divider"></div>
+            </div>
+            <div class="parking-grid">
+                <div class="parking-card fade-in">
+                    <div class="parking-spots">150 <span>мест</span></div>
+                    <div class="parking-type paid">Платная</div>
+                </div>
+                <div class="parking-card fade-in">
+                    <div class="parking-spots">100 <span>мест</span></div>
+                    <div class="parking-type paid">Платная</div>
+                </div>
+                <div class="parking-card fade-in">
+                    <div class="parking-spots">1 <span>место</span></div>
+                    <div class="parking-type free">Бесплатная</div>
+                </div>
+                <div class="parking-card fade-in">
+                    <div class="parking-spots">1 <span>место</span></div>
+                    <div class="parking-type free">Бесплатная</div>
+                </div>
+            </div>
+            <p class="fade-in" style="text-align:center; color: var(--gray); margin-top: 24px; font-size: 14px;">Всего 13 парковок вблизи ТРЦ «Акрополь»</p>
+        </div>
+    </div>
+
+    <!-- TRANSPORT -->
+    <section id="transport">
+        <div class="section-header fade-in">
+            <span class="section-label">Добраться</span>
+            <h2 class="section-title">Транспорт</h2>
+            <div class="divider"></div>
+        </div>
+        <div class="transport-card fade-in">
+            <div class="transport-icon">
+                <svg viewBox="0 0 24 24"><path d="M12 2c-4 0-8 .5-8 4v9.5C4 17.43 5.57 19 7.5 19L6 20.5v.5h12v-.5L16.5 19c1.93 0 3.5-1.57 3.5-3.5V6c0-3.5-4-4-8-4zM7.5 17c-.83 0-1.5-.67-1.5-1.5S6.67 14 7.5 14s1.5.67 1.5 1.5S8.33 17 7.5 17zm3.5-7H6V8h5v2zm5.5 7c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm1.5-7h-5V8h5v2z"/></svg>
+            </div>
+            <div class="transport-info">
+                <h3>Остановка «Горького»</h3>
+                <div class="transport-meta">
+                    <div class="transport-meta-item">
+                        <strong>1 мин</strong> пешком
+                    </div>
+                    <div class="transport-meta-item">
+                        <strong>30 м</strong> от входа
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- REVIEWS -->
+    <div class="reviews-section" id="reviews">
+        <div class="reviews-inner">
+            <div class="section-header fade-in">
+                <span class="section-label">Отзывы</span>
+                <h2 class="section-title">Что говорят клиенты</h2>
+                <p class="section-desc">Реальные отзывы наших покупателей</p>
+                <div class="divider"></div>
+            </div>
+            <div class="reviews-grid">
+                <!-- Review 1 -->
+                <div class="review-card fade-in">
+                    <div class="review-header">
+                        <div class="review-avatar">НФ</div>
+                        <div class="review-author">
+                            <h4>Наталья Фадеева</h4>
+                            <span>23 отзыва</span>
+                        </div>
+                        <div class="review-stars">
+                            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                        </div>
+                    </div>
+                    <p class="review-text">Приветливые продавцы</p>
+                    <p class="review-date">23 июля 2025 · изменён</p>
+                </div>
+
+                <!-- Review 2 -->
+                <div class="review-card fade-in">
+                    <div class="review-header">
+                        <div class="review-avatar">КК</div>
+                        <div class="review-author">
+                            <h4>Кристина Карелина</h4>
+                            <span>21 отзыв</span>
+                        </div>
+                        <div class="review-stars">
+                            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                        </div>
+                    </div>
+                    <p class="review-text">Шла целенаправленно за покупкой зонта. Продавец-консультант всё очень доступно и вежливо объяснила по ассортименту и характеристикам товара. Благодаря ей я нашла тот самый зонтик, в который влюбилась с первого взгляда! Спасибо Вам!</p>
+                    <p class="review-date">10 июня 2025 · Дата посещения: 06.06</p>
+                </div>
+
+                <!-- Review 3 -->
+                <div class="review-card fade-in">
+                    <div class="review-header">
+                        <div class="review-avatar">АБ</div>
+                        <div class="review-author">
+                            <h4>Анна Белова</h4>
+                            <span>32 отзыва</span>
+                        </div>
+                        <div class="review-stars">
+                            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                            <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                        </div>
+                    </div>
+                    <p class="review-text">Попала под дождь, забежала в Престиж, была приятно удивлена выбором зонтов! Можно выбрать на любой вкус и кошелёк. Ушла довольная с самым красивым зонтом, спасибо продавцам за хорошее обслуживание!</p>
+                    <p class="review-date">30 мая 2025</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- GIFT CERTIFICATE -->
+    <div class="cert-section">
+        <div class="cert-card fade-in">
+            <div class="cert-content">
+                <span class="section-label">Идеальный подарок</span>
+                <h2>Подарочный сертификат</h2>
+                <p>Подарите возможность выбора — сертификат «Престиж»</p>
+                <div class="cert-prices">
+                    <span class="cert-price-tag">1 000 ₽</span>
+                    <span class="cert-price-tag">2 000 ₽</span>
+                    <span class="cert-price-tag">3 000 ₽</span>
+                    <span class="cert-price-tag">4 000 ₽</span>
+                </div>
+            </div>
+            <div class="cert-visual">
+                <div class="cert-visual-box">
+                    <span>Престиж</span>
+                    <span>1 000 ₽</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CONTACTS -->
+    <div class="contact-section" id="contacts">
+        <div class="contact-inner">
+            <div class="section-header fade-in">
+                <span class="section-label">Связаться</span>
+                <h2 class="section-title">Контакты</h2>
+                <div class="divider"></div>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <div class="contact-item fade-in">
+                        <div class="contact-icon">
+                            <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                        </div>
+                        <div>
+                            <h4>Адрес</h4>
+                            <p>ТРЦ «Акрополь», ул. Профессора Баранова, 34<br>1 этаж, Калининград</p>
+                        </div>
+                    </div>
+                    <div class="contact-item fade-in">
+                        <div class="contact-icon">
+                            <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+                        </div>
+                        <div>
+                            <h4>Телефон</h4>
+                            <p><a href="tel:+79114977707" style="color: var(--gold); text-decoration: none;">+7 (911) 497-77-07</a></p>
+                            <p style="font-size: 13px; margin-top: 4px;">Viber / WhatsApp</p>
+                        </div>
+                    </div>
+                    <div class="contact-item fade-in">
+                        <div class="contact-icon">
+                            <svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
+                        </div>
+                        <div>
+                            <h4>Режим работы</h4>
+                            <p>ТРЦ «Акрополь»: ежедневно с 10:00 до 22:00</p>
+                        </div>
+                    </div>
+                    <div class="contact-item fade-in">
+                        <div class="contact-icon">
+                            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+                        </div>
+                        <div>
+                            <h4>11 магазинов в городе</h4>
+                            <p>Сеть магазинов «Престиж» — удобно расположенные по всему Калининграду</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="map-container fade-in">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2174.5!2d20.485!3d54.71!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2z0JLQtdGA0LXRiNC10YLRgNC-LdCd0LLQsNGC0LXRgNC10LLQvdCw!5e0!3m2!1sru!2sru!4v1" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-inner">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <a href="#" class="logo">Престиж</a>
+                    <p>Сеть магазинов сумок, кожгалантереи и аксессуаров в Калининграде. 11 магазинов по городу.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Каталог</h4>
+                    <a href="#catalog">Сумки</a>
+                    <a href="#catalog">Чемоданы</a>
+                    <a href="#catalog">Зонты</a>
+                    <a href="#catalog">Кошельки</a>
+                    <a href="#catalog">Ремни</a>
+                    <a href="#catalog">Перчатки</a>
+                </div>
+                <div class="footer-links">
+                    <h4>Информация</h4>
+                    <a href="#payment">Способы оплаты</a>
+                    <a href="#parking">Парковка</a>
+                    <a href="#transport">Транспорт</a>
+                    <a href="#reviews">Отзывы</a>
+                    <a href="#contacts">Контакты</a>
+                </div>
+                <div class="footer-links">
+                    <h4>Связаться</h4>
+                    <a href="tel:+79114977707">+7 (911) 497-77-07</a>
+                    <a href="#">WhatsApp</a>
+                    <a href="#">Viber</a>
+                    <a href="#">Доставка</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2025 Престиж. Все права защищены.</p>
+                <p class="footer-legal">ИП Рипкевичус Павел Альгирдович</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Header scroll effect
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Mobile menu toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const mobileNav = document.getElementById('mobileNav');
+        let menuOpen = false;
+
+        menuToggle.addEventListener('click', () => {
+            menuOpen = !menuOpen;
+            mobileNav.classList.toggle('active');
+            const spans = menuToggle.querySelectorAll('span');
+            if (menuOpen) {
+                spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
+                spans[1].style.opacity = '0';
+                spans[2].style.transform = 'rotate(-45deg) translate(5px, -5px)';
+            } else {
+                spans[0].style.transform = 'none';
+                spans[1].style.opacity = '1';
+                spans[2].style.transform = 'none';
+            }
+        });
+
+        // Close mobile menu on link click
+        mobileNav.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileNav.classList.remove('active');
+                menuOpen = false;
+                const spans = menuToggle.querySelectorAll('span');
+                spans[0].style.transform = 'none';
+                spans[1].style.opacity = '1';
+                spans[2].style.transform = 'none';
+            });
+        });
+
+        // Scroll animations
+        const fadeElements = document.querySelectorAll('.fade-in');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        entry.target.classList.add('visible');
+                    }, index * 80);
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        });
+
+        fadeElements.forEach(el => observer.observe(el));
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const headerHeight = header.offsetHeight;
+                    const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Product button interaction
+        document.querySelectorAll('.product-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                this.style.transform = 'scale(0.9)';
+                setTimeout(() => {
+                    this.style.transform = 'scale(1)';
+                }, 150);
+            });
+        });
+
+        // Category card interaction
+        document.querySelectorAll('.category-card').forEach(card => {
+            card.addEventListener('click', function() {
+                const name = this.querySelector('h3').textContent;
+                const productsSection = document.getElementById('products');
+                productsSection.scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+    </script>
+</body>
+</html>
+
